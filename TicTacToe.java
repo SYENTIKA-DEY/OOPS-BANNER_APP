@@ -4,7 +4,24 @@ public class TicTacToe {
 
     public static void main(String[] args) {
 
-        // Players
+        // -------- UC2: Create & Display Board --------
+        char[][] board = new char[3][3];
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                board[i][j] = '-';
+            }
+        }
+
+        System.out.println("Initial Game Board:");
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.print(board[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        // -------- UC3: Toss Logic --------
         String player1 = "Player 1";
         String player2 = "Player 2";
 
@@ -13,11 +30,9 @@ public class TicTacToe {
         String currentPlayer;
         char currentSymbol;
 
-        // Step 1: Random toss
         Random rand = new Random();
-        int toss = rand.nextInt(2); // 0 or 1
+        int toss = rand.nextInt(2);
 
-        // Step 2: Assign symbols and starting player
         if (toss == 0) {
             player1Symbol = 'X';
             player2Symbol = 'O';
@@ -30,8 +45,7 @@ public class TicTacToe {
             currentSymbol = player2Symbol;
         }
 
-        // Step 3: Display result
-        System.out.println("Toss Result:");
+        System.out.println("\nToss Result:");
         System.out.println(player1 + " is " + player1Symbol);
         System.out.println(player2 + " is " + player2Symbol);
         System.out.println(currentPlayer + " starts first with symbol " + currentSymbol);
